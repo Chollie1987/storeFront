@@ -4,9 +4,8 @@ import data from '../data.json';
 const productSlice = createSlice({
     name: 'product',
     initialState: {
-        data: data,
         selectedProduct: undefined,
-        categories: categories,
+        products: data.products,
     },
     reducers: {
         showProduct: (state, action) => {
