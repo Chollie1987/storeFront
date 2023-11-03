@@ -1,6 +1,6 @@
 import React from 'react';
 // import ProductModal from '../../components/productModal';
-import { Card, CardContent, CardMedia, Modal, Typography } from '@mui/material';
+import { Card, CardContent, CardMedia, Modal, Typography, Button } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import productSlice from '../../store/product';
 
@@ -39,6 +39,7 @@ const ProductModal = () => {
                     <Typography variant="body2" color="text.secondary">
                         ${product?.price}
                     </Typography>
+                    <Button variant="text">Add to Cart</Button>
                 </CardContent>
             </Card>
         </Modal>
