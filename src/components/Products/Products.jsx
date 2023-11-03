@@ -5,12 +5,12 @@ import Product from '../Product/Product';
 import { Category } from '@mui/icons-material';
 
 const Products = () => {
-  const data = useSelector(state => state.product.data);
-  const categories = useSelector(state => state.product.categories)
+  const products = useSelector(state => state.product.products);
+  const selectedCategory = useSelector(state => state.category.selectedCategory)
   return <Grid container spacing={2} marginTop={'20px'}>
-    {data.products.filter(p => p.categories === categories || categories === 'Categories' ).map(product => <Product key={product.name} product={product} />)}
+    {products.filter(p => p.category === selectedCategory || !selectedCategory).map(product => <Product key={product.name} product={product} />)}
   </Grid>;
 
 };
 
-export default Products
+export default Products;

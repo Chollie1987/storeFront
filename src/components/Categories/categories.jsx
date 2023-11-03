@@ -1,13 +1,14 @@
 import React, {useState} from 'react'
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
+import categorySlice from '../../store/category';
 
 const Categories = () => {
     const dispatch = useDispatch()
-    const categories = useSelector(state => state.product.categories)
+    const selectedCategory = useSelector(state => state.category.selectedCategory)
     // const [Categories, setCategories] = useState('categories');
     const handleChange = (e) => {
-        dispatch(productSlice.actions.setCategory(e.target.value))
+        dispatch(categorySlice.actions.setCategory(e.target.value))
         // setCategories(e.target.value);
     }
     return ( 
@@ -17,13 +18,13 @@ const Categories = () => {
         <Select
             labelId="Categories"
             id="category"
-            value={Categories}
+            value={selectedCategory}
             label="Categories"
             onChange={handleChange}
         >
-            <MenuItem value={1}>Electronics</MenuItem>
-            <MenuItem value={2}>Food</MenuItem>
-             <MenuItem value={3}>Clothing</MenuItem>
+            <MenuItem value={'electronics'}>Electronics</MenuItem>
+            <MenuItem value={'food'}>Food</MenuItem>
+             <MenuItem value={'clothing'}>Clothing</MenuItem>
         </Select>
     </FormControl>
         </div>
