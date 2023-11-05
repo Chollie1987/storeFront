@@ -4,14 +4,16 @@ import data from '../data.json';
 const cartSlice = createSlice({
     name: 'cart',
     initialState: {
-        cart: data.cart,
+        cart: [],
+        itemsInCart: 0,
     },
     reducers: {
         showCart: (state, action) => {
             state.selectedProduct = action.payload;
         },
         setAddToCart: (state, action) => {
-            state.product = action.payload;
+            state.cart = [...state.cart, action.payload];
+            state.itemsInCart += 1;
         }
     }
 });
