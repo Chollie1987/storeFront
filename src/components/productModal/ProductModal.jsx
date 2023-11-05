@@ -3,6 +3,9 @@ import React from 'react';
 import { Card, CardContent, CardMedia, Modal, Typography, Button } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import productSlice from '../../store/product';
+import cartSlice from '../../store/cart';
+// import Product from '../Product/Product';
+
 
 const style = {
     position: 'absolute',
@@ -16,12 +19,14 @@ const style = {
     p: 4,
 };
 
-
 const ProductModal = () => {
     const product = useSelector((state) => state.product.selectedProduct);
     const dispatch = useDispatch();
     const handleClose = () => {
         dispatch(productSlice.actions.showProduct(undefined));
+    }
+    const handleAddToCart = () => {
+        dispatch(cartSlice.actions.setAddToCart(product))
     }
     return (
         <Modal
@@ -39,7 +44,7 @@ const ProductModal = () => {
                     <Typography variant="body2" color="text.secondary">
                         ${product?.price}
                     </Typography>
-                    <Button variant="text">Add to Cart</Button>
+                    <Button onClick={handleAddToCart} variant="text">Add to Cart</Button>
                 </CardContent>
             </Card>
         </Modal>
