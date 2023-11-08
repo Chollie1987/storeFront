@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useSelector } from 'react-redux';
+import { Button } from '@mui/material';
 
 
 const Cart= ({openCart}) => {
