@@ -12,7 +12,7 @@ const Categories = () => {
         // setCategories(e.target.value);
     }
     return ( 
-        <div style={{width: '150px'}}>
+        <div style={{width: '150px', paddingLeft: '30px'}}>
         <FormControl fullWidth>
         <InputLabel id="Categories">Categories</InputLabel>
         <Select
