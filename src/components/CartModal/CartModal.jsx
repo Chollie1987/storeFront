@@ -1,6 +1,7 @@
 import React from 'react'
-import { Card, CardContent, CardMedia, Modal, Typography, Button } from '@mui/material';
+import { Card, CardContent, Modal, Typography, Button } from '@mui/material';
 import { useSelector } from 'react-redux';
+import Product from '../Product/Product';
 // import { useDispatch, useSelector } from 'react-redux';
 // import productSlice from '../../store/product';
 // import cartSlice from '../../store/cart';
@@ -15,28 +16,30 @@ const style = {
     boxShadow: 24,
     p: 4,
 };
-const CartModal = ({open, handleClose}) => {
+
+const contentStyle = {
+    fontFamily: 'Libre Baskerville'
+}
+const CartModal = ({ open, handleClose }) => {
     const cart = useSelector(state => state.cart.cart);
     console.log(cart)
-  return (
-      <Modal
-          open={open} onClose={handleClose}>
-          <Card style= {style}>
-            
-              {/* <CardMedia
-                  sx={{ height: 200 }}
-                
-              /> */}
-              <CardContent> Cart Items:
-                {cart.map(item => (
-                    <Typography gutterBottom variant="h6">
+    return (
+        <Modal
+            open={open} onClose={handleClose}>
+            <Card style={style}>
+                <CardContent style={contentStyle}>
+                    {cart.map(item => (
+                        <Typography key={item?.name} gutterBottom variant="h6"> 
+                        Cart Items:
+                        <br/>
                        {item?.name}
                     </Typography> 
-                ))}
-              </CardContent> 
-          </Card>
-      </Modal>
-  )
+                    ))}
+                    <Button>Checkout</Button>
+                </CardContent>
+            </Card>
+        </Modal>
+    )
 }
 
 export default CartModal

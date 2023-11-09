@@ -6,6 +6,8 @@ import categorySlice from '../../store/category';
 const Categories = () => {
     const dispatch = useDispatch()
     const selectedCategory = useSelector(state => state.category.selectedCategory)
+    const categories = useSelector(state => state.category.categories)
+    // console.log(categories)
     // const [Categories, setCategories] = useState('categories');
     const handleChange = (e) => {
         dispatch(categorySlice.actions.setCategory(e.target.value))
@@ -22,9 +24,7 @@ const Categories = () => {
             label="Categories"
             onChange={handleChange}
         >
-            <MenuItem value={'electronics'}>Electronics</MenuItem>
-            <MenuItem value={'food'}>Food</MenuItem>
-             <MenuItem value={'clothing'}>Clothing</MenuItem>
+                    {categories.map(category => (<MenuItem key={category._id} value={category.name}>{category.name}</MenuItem>))}
         </Select>
     </FormControl>
         </div>

@@ -13,11 +13,16 @@ const Product = ({ product }) => {
     return (
         <Grid item xs={3}>
         <Card>
-            <CardMedia
+                <CardMedia
+                    sx={{ height: 220 }}
+                    image={`http://source.unsplash.com/random?${product.name}`}
+                    title={product.name}
+                />
+            {/* <CardMedia
                 sx={{ height: 200 }}
                 image="/static/images/cards/contemplative-reptile.jpg"
                 title={product.name}
-            />
+            /> */}
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                     {product.name}
