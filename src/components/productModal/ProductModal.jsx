@@ -33,8 +33,8 @@ const ProductModal = () => {
             open={product !== undefined} onClose ={handleClose}>
             <Card style={style}>
                 <CardMedia
-                    sx={{ height: 200 }}
-                    image="/static/images/cards/contemplative-reptile.jpg"
+                    sx={{ height: 220 }}
+                    image={`http://source.unsplash.com/random?${product?.name}`}
                     title={product?.name}
                 />
                 <CardContent>
